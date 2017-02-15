@@ -30,10 +30,11 @@ public class WebVideoTexture : MonoBehaviour
 
     IEnumerator Start()
     {
+        tex = null;
         tex = new WebGLMovieTexture(m_VideoURL);
         tex.loop = m_Loop;
 
-        m_Screen.GetComponent<MeshRenderer>().material = new Material(Shader.Find("Diffuse"));
+        //m_Screen.GetComponent<MeshRenderer>().material = new Material(Shader.Find("Diffuse"));
         m_Screen.GetComponent<MeshRenderer>().material.mainTexture = tex;
         while(!tex.isReady)
         {
@@ -47,8 +48,12 @@ public class WebVideoTexture : MonoBehaviour
             yield break;
         }
 
-        tex.Play();
-        OnPlay.Invoke();
+        Play();
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(Start());
     }
 
     void Update()
@@ -59,7 +64,16 @@ public class WebVideoTexture : MonoBehaviour
         {
             cState = State.END;
             OnEnd.Invoke();
+            tex.Seek(0.01f);
         }
+    }
+
+    public void Play()
+    {
+        //tex = new WebGLMovieTexture(m_VideoURL);
+
+        tex.Play();
+        OnPlay.Invoke();
     }
 
     public void PlayPause()
