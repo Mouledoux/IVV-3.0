@@ -76,7 +76,8 @@ public class SpotTheDifference : MonoBehaviour
 
         GameObject cm = Instantiate(m_ConfirmationMark, aTrans);
         cm.transform.localPosition = Vector3.zero;
-        cm.transform.LookAt(m_Camera.transform);
+        cm.transform.localEulerAngles = Vector3.zero;
+        //cm.transform.LookAt(m_Camera.transform);
     }
 
     public void Restart()
