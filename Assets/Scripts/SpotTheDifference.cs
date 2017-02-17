@@ -103,8 +103,21 @@ public class SpotTheDifference : MonoBehaviour
         SendMail("Admin@TantrumLab.com", email, subject, body, "Tantrumlab01");
     }
 
+    public void EmailScore(UnityEngine.UI.InputField email)
+    {
+        string subject = "IVV Score";
+        string body =
+            "Congradulation on finding " + (m_Spotted.Count == transform.childCount ? "all " : "")
+            + m_Spotted.Count.ToString() + " of the differences. Great job!";
+
+        SendMail("Admin@TantrumLab.com", email.text, subject, body, "Tantrumlab01");
+    }
+
     void SendMail(string aFrom, string aTo, string aSubject, string aBody, string aPassword)
     {
+        if (!aTo.Contains("@") && !aTo.ToLower().Contains(".com"))
+            return;
+
         MailMessage mail = new MailMessage();
 
         mail.From = new MailAddress(aFrom);
