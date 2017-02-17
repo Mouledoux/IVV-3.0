@@ -18,7 +18,7 @@ public class OnVidEnd : MonoBehaviour
     {
         foreach(GameObject g in m_ToggleForVid)
         {
-            g.SetActive(!g.active);
+            g.SetActive(!g.activeSelf);
         }
 
     }
@@ -27,7 +27,7 @@ public class OnVidEnd : MonoBehaviour
     {
         foreach (GameObject g in m_ToggleForVid)
         {
-            g.SetActive(!g.active);
+            g.SetActive(!g.activeSelf);
         }
     }
 }
