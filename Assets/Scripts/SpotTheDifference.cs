@@ -59,15 +59,20 @@ public class SpotTheDifference : MonoBehaviour
                     if (spotted == m_RayHit.transform.gameObject)
                         if (!m_Spotted.Contains(spotted))
                         {
-                            m_Spotted.Add(spotted);
-                            SpawnConfirmation(spotted.transform);
-                            OnSpot.Invoke();
+                            ClickToFind(spotted);
                         }
             }
 
             yield return null;
         }
 	}
+
+    public void ClickToFind(GameObject aDif)
+    {
+        m_Spotted.Add(aDif);
+        SpawnConfirmation(aDif.transform);
+        OnSpot.Invoke();
+    }
 
     public void SpawnConfirmation(Transform aTrans)
     {
