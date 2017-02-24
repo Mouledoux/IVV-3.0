@@ -41,6 +41,10 @@ public class SpotTheDifference : MonoBehaviour
         }
     }
 
+    void OnEnable()
+    {
+        StartCoroutine(Start());
+    }
 
 	IEnumerator Start()
     {
@@ -62,7 +66,6 @@ public class SpotTheDifference : MonoBehaviour
                             ClickToFind(spotted);
                         }
             }
-
             yield return null;
         }
 	}
