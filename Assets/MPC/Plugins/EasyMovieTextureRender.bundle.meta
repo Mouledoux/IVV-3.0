@@ -1,7 +1,7 @@
 fileFormatVersion: 2
-guid: 8ebdd5daa886ba049aad613ffa34c18c
+guid: 551dcb9f7318348d2bbe1afa6c702a4c
 folderAsset: yes
-timeCreated: 1454950620
+timeCreated: 1475952812
 licenseType: Store
 PluginImporter:
   serializedVersion: 1
@@ -10,10 +10,6 @@ PluginImporter:
   isPreloaded: 0
   isOverridable: 0
   platformData:
-    Android:
-      enabled: 0
-      settings:
-        CPU: AnyCPU
     Any:
       enabled: 0
       settings: {}
@@ -55,6 +51,11 @@ PluginImporter:
       enabled: 1
       settings:
         CPU: AnyCPU
+    iOS:
+      enabled: 0
+      settings:
+        CompileFlags: 
+        FrameworkDependencies: 
   userData: 
   assetBundleName: 
   assetBundleVariant: 

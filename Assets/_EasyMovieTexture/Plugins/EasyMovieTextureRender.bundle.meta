@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 551dcb9f7318348d2bbe1afa6c702a4c
+guid: 32ba5e35f1347d3468cc9f6de7e85fa0
 folderAsset: yes
 timeCreated: 1475952812
 licenseType: Store
@@ -8,6 +8,7 @@ PluginImporter:
   iconMap: {}
   executionOrder: {}
   isPreloaded: 0
+  isOverridable: 0
   platformData:
     Any:
       enabled: 0
