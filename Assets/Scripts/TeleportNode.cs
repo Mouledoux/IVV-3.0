@@ -22,5 +22,9 @@ public class TeleportNode : RaySelectionVolume
         m_cameraRig.transform.position = temp;
     }
 
+    public void LoadedAction()
+    {
+        loadedAction.Invoke();
+    }
 
 }
