@@ -68,12 +68,18 @@ public class WebVideoTexture : MonoBehaviour
         }
     }
 
-    public void Play()
+    IEnumerator _Play()
     {
-        //tex = new WebGLMovieTexture(m_VideoURL);
+        yield return new WaitUntil(() => tex.isReady);
 
         tex.Play();
         OnPlay.Invoke();
+    }
+
+    public void Play()
+    {
+        //tex = new WebGLMovieTexture(m_VideoURL);
+        StartCoroutine(_Play());
     }
 
     public void PlayPause()
@@ -92,8 +98,16 @@ public class WebVideoTexture : MonoBehaviour
 
     public void Stop()
     {
-        tex.Pause();
         tex.Seek(0f);
+        tex.Pause();
         cState = State.STOP;
+
+        AudioSource [] audi = FindObjectsOfType<AudioSource>();
+
+        foreach (AudioSource a in audi)
+        {
+            Destroy(a.gameObject);
+        }
+        
     }
 }

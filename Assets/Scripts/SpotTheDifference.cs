@@ -10,6 +10,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 
 using System.Net;
 using System.Net.Mail;
@@ -18,6 +19,9 @@ using System.Security.Cryptography.X509Certificates;
 
 public class SpotTheDifference : MonoBehaviour
 {
+
+    [SerializeField] private Text m_score;
+
     private GameObject m_Camera;
     private List<GameObject> m_Spotted = new List<GameObject>();
     private RaycastHit m_RayHit;
@@ -75,6 +79,16 @@ public class SpotTheDifference : MonoBehaviour
         m_Spotted.Add(aDif);
         SpawnConfirmation(aDif.transform);
         OnSpot.Invoke();
+
+    }
+
+    public void TallyScore()
+    {
+        string body =
+            "Congradulation on finding " + (m_Spotted.Count == transform.childCount ? "all " : "")
+            + m_Spotted.Count.ToString() + " of the differences. Great job!";
+
+        m_score.text = body;
     }
 
     public void SpawnConfirmation(Transform aTrans)
