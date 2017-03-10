@@ -85,7 +85,7 @@ public class SpotTheDifference : MonoBehaviour
     public void TallyScore()
     {
         string body =
-            "Congradulation on finding " + (m_Spotted.Count == transform.childCount ? "all " : "")
+            "Congratulation on finding " + (m_Spotted.Count == transform.childCount ? "all " : "")
             + m_Spotted.Count.ToString() + " of the differences. Great job!";
 
         m_score.text = body;
