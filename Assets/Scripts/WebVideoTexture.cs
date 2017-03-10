@@ -101,13 +101,6 @@ public class WebVideoTexture : MonoBehaviour
         tex.Seek(0f);
         tex.Pause();
         cState = State.STOP;
-
-        AudioSource [] audi = FindObjectsOfType<AudioSource>();
-
-        foreach (AudioSource a in audi)
-        {
-            Destroy(a.gameObject);
-        }
         
     }
 }
