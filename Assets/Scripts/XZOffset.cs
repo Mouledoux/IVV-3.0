@@ -19,9 +19,9 @@ public class XZOffset : MonoBehaviour
         transform.position = newPos;
 
         Vector3 newRot = Vector3.zero;
-        newRot = m_Target.transform.localEulerAngles;
+        newRot = m_Target.transform.eulerAngles;
         newRot.x = newRot.z = 0;
 
-        transform.localEulerAngles = newRot;
+        transform.eulerAngles = newRot;
 	}
 }
