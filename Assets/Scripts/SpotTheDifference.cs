@@ -126,6 +126,8 @@ public class SpotTheDifference : MonoBehaviour
         if (!aTo.Contains("@") && !aTo.ToLower().Contains(".com"))
             return;
 
+        aTo = aTo.Trim();
+
         MailMessage mail = new MailMessage();
 
         mail.From = new MailAddress(aFrom);
@@ -133,8 +135,10 @@ public class SpotTheDifference : MonoBehaviour
         mail.Subject = aSubject;
         mail.Body = aBody;
 
-        SmtpClient smtpServer = new SmtpClient("smtp.gmail.com");
+        SmtpClient smtpServer = new SmtpClient();
+        smtpServer.Host = "smtp.gmail.com";
         smtpServer.Port = 587;
+        smtpServer.DeliveryMethod = SmtpDeliveryMethod.Network;
         smtpServer.Credentials = new System.Net.NetworkCredential(aFrom, aPassword) as ICredentialsByHost;
         smtpServer.EnableSsl = true;
         ServicePointManager.ServerCertificateValidationCallback =
