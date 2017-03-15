@@ -105,7 +105,7 @@ public class SpotTheDifference : MonoBehaviour
     {
         string subject = "IVV Score";
         string body =
-            "Congratulation on finding " + (m_Spotted.Count == transform.childCount ? "all " : "")
+            "Congratulations on finding " + (m_Spotted.Count == transform.childCount ? "all " : "")
             + m_Spotted.Count.ToString() + " of the differences. Great job!";
 
         SendMail("Admin@TantrumLab.com", email, subject, body, "Tantrumlab01");
@@ -115,7 +115,7 @@ public class SpotTheDifference : MonoBehaviour
     {
         string subject = "IVV Score";
         string body =
-            "Congratulation on finding " + (m_Spotted.Count == transform.childCount ? "all " : "")
+            "Congratulations on finding " + (m_Spotted.Count == transform.childCount ? "all " : "")
             + m_Spotted.Count.ToString() + " of the differences. Great job!";
 
         SendMail("Admin@TantrumLab.com", email.text, subject, body, "Tantrumlab01");
