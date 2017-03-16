@@ -103,7 +103,7 @@ public class SpotTheDifference : MonoBehaviour
 
     public void EmailScore(string email)
     {
-        string subject = "IVV Score";
+        string subject = "IVS Score";
         string body =
             "Congratulations on finding " + (m_Spotted.Count == transform.childCount ? "all " : "")
             + m_Spotted.Count.ToString() + " of the differences. Great job!";
@@ -113,22 +113,18 @@ public class SpotTheDifference : MonoBehaviour
 
     public void EmailScore(UnityEngine.UI.InputField email)
     {
-        string subject = "IVV Score";
-        string body =
-            "Congratulations on finding " + (m_Spotted.Count == transform.childCount ? "all " : "")
-            + m_Spotted.Count.ToString() + " of the differences. Great job!";
+        //string subject = "IVS Score";
+        //string body =
+        //    "Congratulations on finding " + (m_Spotted.Count == transform.childCount ? "all " : "")
+        //    + m_Spotted.Count.ToString() + " of the differences. Great job!";
 
-        SendMail("Admin@TantrumLab.com", email.text, subject, body, "Tantrumlab01");
+        //SendMail("Admin@TantrumLab.com", email.text, subject, body, "Tantrumlab01");
+
+        EmailScore(email.text);
     }
 
     void SendMail(string aFrom, string aTo, string aSubject, string aBody, string aPassword)
     {
-        if (Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            Application.OpenURL("mailto:" + aTo + "?subject=" + aSubject + "&body=" + aBody);
-            return;
-        }
-
         if (!aTo.Contains("@") && !aTo.ToLower().Contains(".com"))
             return;
 
