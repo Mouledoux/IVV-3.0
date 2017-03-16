@@ -123,6 +123,12 @@ public class SpotTheDifference : MonoBehaviour
 
     void SendMail(string aFrom, string aTo, string aSubject, string aBody, string aPassword)
     {
+        if (Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            Application.OpenURL("mailto:" + aTo + "?subject=" + aSubject + "&body=" + aBody);
+            return;
+        }
+
         if (!aTo.Contains("@") && !aTo.ToLower().Contains(".com"))
             return;
 
